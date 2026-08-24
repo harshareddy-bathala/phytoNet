@@ -1,0 +1,25 @@
+# PhytoNet paper-grade experiment (Hydra). Override on the CLI, e.g.:
+#   python scripts/run_experiment.py seeds=8 days=80 wandb.enabled=true
+methods:
+  - random
+  - balanced
+  - bioelectric_hand
+  - bioelectric_evolved
+  - learned_evolved
+scenarios:
+  - baseline
+  - drought
+  - shade
+  - patchy
+  - herbivory
+seeds: 5            # uses seeds 0 .. seeds-1
+days: 70
+evolve_iters: 8     # CEM iterations for the evolved methods
+evolve_pop: 16      # CEM population
+outdir: results
+compare:            # headline pairwise significance test
+  a: bioelectric_evolved
+  b: balanced
+wandb:
+  enabled: false
+  project: phytonet

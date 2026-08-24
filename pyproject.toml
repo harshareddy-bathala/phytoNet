@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phytonet"
+version = "0.0.1"
+description = "A simulated plant agent that learns its own internal signaling (MVP stage: hand-coded growth)."
+requires-python = ">=3.11"
+# Lean on purpose. We add torch / torch-geometric / gymnasium / cleanrl / hydra / wandb
+# only when the step that needs them arrives. See the roadmap in README.md.
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+    "gymnasium>=0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# Deep RL. Install the CPU build explicitly to keep it small:
+#   pip install "torch>=2.2" --index-url https://download.pytorch.org/whl/cpu
+rl = ["torch>=2.2"]
+# Reproducibility / paper experiments (Hydra configs; W&B is optional on top).
+repro = ["hydra-core>=1.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

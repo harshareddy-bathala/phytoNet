@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Generated visualization outputs (regenerate with scripts/run_*.py)
+*.png
+*.gif
+*.mp4
+
+# Experiment + Hydra/W&B outputs (regenerate with scripts/run_experiment.py)
+results/
+outputs/
+multirun/
+wandb/
+*.csv
